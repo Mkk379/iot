@@ -234,15 +234,10 @@
 /* ===================== SETTINGS (edit these once) ===================== */
 var GOATCOUNTER_CODE = "mkk379";                                       // e.g. "jntugv-iot"  (see README, step 1)
 /* ====================================================================== */
-
+ 
 /* ---------- 1. Page-view counter (GoatCounter) ---------- */
 (function(){
   if(!GOATCOUNTER_CODE) return;
-  var s=document.createElement("script");
-  s.async=true; s.src="https://gc.zgo.at/count.js";
-  s.setAttribute("data-goatcounter","https://"+GOATCOUNTER_CODE+".goatcounter.com/count");
-  document.head.appendChild(s);
-
   fetch("https://"+GOATCOUNTER_CODE+".goatcounter.com/counter/TOTAL.json")
     .then(function(r){ if(!r.ok) throw 0; return r.json(); })
     .then(function(d){
@@ -250,7 +245,7 @@ var GOATCOUNTER_CODE = "mkk379";                                       // e.g. "
       document.getElementById("views").hidden = false;
     }).catch(function(){ /* keep the badge hidden if the counter is unavailable */ });
 })();
-
+ 
 /* ---------- 2. Count file opens in GoatCounter (shows in your dashboard) ---------- */
 document.addEventListener("click",function(e){
   var a=e.target.closest('#info ul a'); if(!a) return;
