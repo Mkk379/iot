@@ -230,30 +230,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 
-<script>
-/* ===================== SETTINGS (edit these once) ===================== */
-var GOATCOUNTER_CODE = "mkk379";                                       // e.g. "jntugv-iot"  (see README, step 1)
-/* ====================================================================== */
- 
-/* ---------- 1. Page-view counter (GoatCounter) ---------- */
-(function(){
-  if(!GOATCOUNTER_CODE) return;
-  fetch("https://"+GOATCOUNTER_CODE+".goatcounter.com/counter/TOTAL.json")
-    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
-    .then(function(d){
-      document.getElementById("views-count").textContent = d.count;
-      document.getElementById("views").hidden = false;
-    }).catch(function(){ /* keep the badge hidden if the counter is unavailable */ });
-})();
- 
-/* ---------- 2. Count file opens in GoatCounter (shows in your dashboard) ---------- */
-document.addEventListener("click",function(e){
-  var a=e.target.closest('#info ul a'); if(!a) return;
-  try{ if(window.goatcounter&&window.goatcounter.count){
-    var n=decodeURIComponent(a.getAttribute("href").split("/").pop());
-    window.goatcounter.count({path:"material/"+n,title:n,event:true});
-  } }catch(err){}
-});
-</script>
+
 </body>
 </html>
